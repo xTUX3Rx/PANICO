@@ -52,36 +52,30 @@ alarmButton.addEventListener('click', () => {
 
 let isAmbulanceAlarmPlaying = false;
 //sonido ambulancia +----+
-document.querySelectorAll('.grid-option').forEach(btn => {
-  btn.addEventListener('click', function () {
-    // Visual: toggle clase en el texto y el botón
-    document.querySelector('.text-help-support').classList.toggle('active');
-    this.classList.toggle('active');
 
-    // Funcionalidad específica según ID del botón
-    if (this.id === 'alarmAmbulance') {
-      if (!isAmbulanceAlarmPlaying) {
-        if (locationConfig === "peru") {
-          ambulanceSoundPeru.volume = 1.0;
-          ambulanceSoundPeru.play().catch(err => {
-            alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
-            console.error(err);
-          });
-        }
-        isAmbulanceAlarmPlaying = true;
-      } else {
-        if (locationConfig === "peru") {
-          ambulanceSoundPeru.pause();
-          ambulanceSoundPeru.currentTime = 0;
-        }
-        isAmbulanceAlarmPlaying = false;
-      }
+alarmAmbulance.addEventListener('click', function () {
+  // Cambios visuales
+  document.querySelector('.text-help-support').classList.toggle('active');
+  this.classList.toggle('active');
+
+  // Lógica de sonido
+  if (!isAmbulanceAlarmPlaying) {
+    if (locationConfig === "peru") {
+      ambulanceSoundPeru.volume = 1.0;
+      ambulanceSoundPeru.play().catch(err => {
+        alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
+        console.error(err);
+      });
     }
-
-    // Puedes agregar aquí más condiciones para otros botones si lo deseas
-  });
+    isAmbulanceAlarmPlaying = true;
+  } else {
+    if (locationConfig === "peru") {
+      ambulanceSoundPeru.pause();
+      ambulanceSoundPeru.currentTime = 0;
+    }
+    isAmbulanceAlarmPlaying = false;
+  }
 });
-
 
 
 
