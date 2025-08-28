@@ -117,7 +117,7 @@ setPoliceNumber();
 
 document.querySelectorAll('.grid-option').forEach(btn => {
   btn.addEventListener('click', function () {
-   // document.querySelector('.text-help-support').classList.toggle('active');
+   document.querySelector('.text-help-support').classList.toggle('active');
     this.classList.toggle('active');
   });
 });
@@ -228,4 +228,3 @@ myWebView.setWebViewClient(new WebViewClient() {
 });
 
 */
-
