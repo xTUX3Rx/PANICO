@@ -211,7 +211,7 @@ document.querySelector('.dialog-action').addEventListener('click', () => {
   executeAlarm();
 
 });
-
+/*
 myWebView.setWebViewClient(new WebViewClient() {
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -223,3 +223,5 @@ myWebView.setWebViewClient(new WebViewClient() {
         return false;
     }
 });
+
+*/
