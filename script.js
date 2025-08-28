@@ -13,15 +13,17 @@ const ambulanceSoundPeru = document.getElementById('ambulanceSoundPeru');
 
 
 const locationOutput = document.getElementById('locationOutput');
-
+//codigo para wasap
 const locationButton = document.getElementById('shareLocation');
 const callButton = document.getElementById('callPolice');
+
+
 
 let isAlarmPlaying = false;
 
 let locationConfig = "peru";
 let policeNumber = '105';
-
+//principal bocina
 alarmButton.addEventListener('click', () => {
   if (!isAlarmPlaying) {
 
@@ -49,7 +51,7 @@ alarmButton.addEventListener('click', () => {
 });
 
 let isAmbulanceAlarmPlaying = false;
-
+//sonido ambulancia
 alarmAmbulance.addEventListener('click', () => {
   if (!isAmbulanceAlarmPlaying) {
     if (locationConfig === "peru") {
@@ -75,33 +77,34 @@ callButton.addEventListener('click', () => {
   window.location.href = `tel:${policeNumber}`;
 });
 
-// Compartir ubicación en tiempo real
-let watchId = null;
 
+let watchId = null;
+// Compartir ubicación en tiempo real
 locationButton.addEventListener('click', () => {
-  if (navigator.geolocation) {
-    if (watchId === null) {
-      watchId = navigator.geolocation.watchPosition((position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        const locationUrl = `https://www.google.com/maps?q=${lat},${lon}`;
-        locationOutput.innerHTML = `Ubicación en tiempo real: <a href="${locationUrl}" target="_blank">${locationUrl}</a>`;
-      }, (err) => {
-        alert("No se pudo obtener la ubicación: " + err.message);
-      }, {
-        enableHighAccuracy: true,
-        maximumAge: 0,
-        timeout: 5000
-      });
-    } else {
-      navigator.geolocation.clearWatch(watchId);
-      watchId = null;
-      locationOutput.innerHTML = "";
+  if (!navigator.geolocation) {
+      alert("Tu navegador no soporta geolocalización.");
+      return;
     }
-  } else {
-    alert("Geolocalización no soportada en este navegador.");
-  }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    function success(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+
+      const numero = "51929370034"; // Reemplaza con el número real
+      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
+
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+    }
+
+    function error() {
+      alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
+    }
 })
+
 
 function setPoliceNumber() {
   if (locationConfig === "peru") {
@@ -114,7 +117,7 @@ setPoliceNumber();
 
 document.querySelectorAll('.grid-option').forEach(btn => {
   btn.addEventListener('click', function () {
-    document.querySelector('.text-help-support').classList.toggle('active');
+   // document.querySelector('.text-help-support').classList.toggle('active');
     this.classList.toggle('active');
   });
 });
@@ -174,7 +177,7 @@ document.querySelector('.overlay-notification').addEventListener('click', toggle
 function executeAlarm() {
   if (!isAlarmPlaying) {
     if (locationConfig === "peru") {
-      alarmSoundPeru.volume = 1.0;
+      alarmSoundPeru.volume = 2.0;
       alarmSoundPeru.play().catch(err => {
         alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
         console.error(err);
@@ -211,7 +214,7 @@ document.querySelector('.dialog-action').addEventListener('click', () => {
   executeAlarm();
 
 });
-
+/*
 myWebView.setWebViewClient(new WebViewClient() {
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -223,3 +226,6 @@ myWebView.setWebViewClient(new WebViewClient() {
         return false;
     }
 });
+
+*/
+

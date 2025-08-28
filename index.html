@@ -19,12 +19,8 @@
 <body>
   <div class="wrapper-app">
     <div class="wrapper-app__header">
-      <!--
-      <div class="icon-button button-menu">
-        <span class="material-symbols-outlined">MENU</span>
-      </div>
--->
-<div class="app-header__image">
+      
+    <div class="app-header__image">
   <img src="assets/resources/FyA.png" />
 </div>
 
@@ -47,8 +43,7 @@
           <div class="alert-button__animation"></div>
           <span class="material-symbols-outlined">campaign</span>
         </div>
-
-        <div class="alert-status" id="alertStatus">
+      <div class="alert-status" id="alertStatus">
           <span class="material-symbols-outlined">check_circle</span>
           <p>Alerta activada correctamente</p>
         </div>
@@ -58,149 +53,49 @@
       <div class="more-options">
         <p class="more-options__title">¿Necesitas otro tipo de ayuda?</p>
         <div class="grid-options">
+
+          <div class="grid-option call-police" id="callPolice">
+          <span class="material-symbols-outlined">local_police</span>
+          <p id="policeNumber"></p>
+          </div>
+
+
+
+
           <div class="grid-option share-location" id="shareLocation">
             <span class="material-symbols-outlined">location_on</span>
-            <p>Compartir ubicación</p>
+            <p>Enviar ubicación</p>
           </div>
           
-          <div class="grid-option call-police" id="callPolice">
-            <span class="material-symbols-outlined"><span class="material-symbols-outlined">local_police</span></span>
-            <p id="policeNumber"></p>
-          </div>
+          
+
+
           <div class="grid-option call-police" id="alarmAmbulance">
-            <span class="material-symbols-outlined"><span class="material-symbols-outlined">siren</span></span>
+            <span class="material-symbols-outlined">siren</span>
             <p>Sirena de ambulancia</p>
           </div>
 
           <div class="grid-option emergency_share" id="emergency">
             <span class="material-symbols-outlined">emergency_share</span>
-            <p>ENVIAR WASAP</p>
+            <p>Alerta Serenazgo</p>
+            <p>PROXIMAMENTE</p>
           </div>
-
-<!-- Botón con ícono de policía -->
-<div class="grid-option call-police" id="callPolice">
-  <span class="material-symbols-outlined">local_police</span>
-  <p id="policeNumber">Botón de Pánico</p>
-</div>
-
-<script>
-  document.getElementById("callPolice").addEventListener("click", function () {
-    if (!navigator.geolocation) {
-      alert("Tu navegador no soporta geolocalización.");
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(success, error);
-
-    function success(position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
-
-      const numero = "51929370034"; // Reemplaza con el número real
-      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
-
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_blank');
-    }
-
-    function error() {
-      alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
-    }
-  });
-</script>
-
-
 
         </div>
         <p class="text-help text-help-support">Presiona el botón otra vez para desactivar</p>
-      </div>
-    </div>
-<!-- clickk-->
-    <button onclick="enviarAlerta()">BOTON DE WATSAPP</button>
-
-    <script>
-      function enviarAlerta() {
-        if (!navigator.geolocation) {
-          alert("La geolocalización no está soportada por tu navegador.");
-          return;
-        }
-  
-        navigator.geolocation.getCurrentPosition(success, error);
-  
-        function success(position) {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
-  
-          const numero = "51929370034"; // Reemplaza con el número real
-          const mensaje = `¡Emergencia! Necesito ayuda. Esta es mi ubicación: ${mapsLink}`;
-  
-          const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-          window.open(url, '_blank');
-        }
-  
-        function error() {
-          alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
-        }
-      }
-    </script>
-
-
-
-<!--
-    <div class="wrapper-menu">
-      <div class="content-menu">
-        <div class="menu-header flex justify-content-start">
-          <div class="menu-header__title">Alerta temprana</div>
-          <div class="icon-button button-menu">
-            <span class="material-symbols-outlined">close</span>
-          </div>
         </div>
 
-        <div class="menu-body">
-          <div class="flex menu-section__header">
-            <span>Configuración</span>
-            <span class="material-symbols-outlined">settings</span>
-          </div>
-          <div class="menu-section__subheader">
-            <span>Localización</span>
-          </div>
-          <div class="menu-list">
-            <div class="menu-option active flex justify-content-start" data-location="peru">
-              <div class="menu-option__icon">
-                <img src="https://cdn.worldvectorlogo.com/logos/peruc.svg" alt="">
-              </div>
-              <div class="menu-option__description">Perú</div>
-            </div>
-            <div class="menu-option flex justify-content-start" data-location="colombia">
-              <div class="menu-option__icon">
-                <img src="https://cdn.worldvectorlogo.com/logos/colombia.svg" alt="">
-              </div>
-              <div class="menu-option__description">Colombia</div>
-            </div>
-            <div class="menu-option flex justify-content-start" data-location="chile">
-              <div class="menu-option__icon">
-                <img src="https://cdn.worldvectorlogo.com/logos/chilec.svg" alt="">
-              </div>
-              <div class="menu-option__description">Chile</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-   
-    <div class="overlay-menu"></div>
- -->
+
     <div id="locationOutput"></div>
 
     <div class="wrapper-notification">
       <div class="dialog-notification">
-        <p>Ana Cecilia emitió una alerta cerca de "Colegio FE Y ALEGRIA N°63" 🚨🚨🚨</p>
+        <p>Se emitio una alerta 🚨🚨🚨</p>
         <div class="dialog-map">
           <div class="dialog-map__animation alert-circle-1"></div>
           <div class="dialog-map__animation alert-circle-2"></div>
-          <img src="assets/resources/maps.png" alt="">
+         <!--<img src="assets/resources/maps.png" alt="">--> 
         </div>
         <span class="dialog-action">Clic para cerrar</span>
       </div>
@@ -210,18 +105,14 @@
   </div>
   <div class="footer">
     <p id="simulateAlert">ALUMNOS:</p>
+    <p id="simulateAlert">Jose Abanto:</p>
+
   </div>
 
   <audio id="alarmSoundPeru" src="assets/resources/sirena-peru.mp3" preload="auto" loop></audio>
-  <audio id="alarmSoundColombia" src="assets/resources/sirena-colombia.mp3" preload="auto" loop></audio>
-  <audio id="alarmSoundChile" src="assets/resources/sirena-chile.mp3" preload="auto" loop></audio>
-
   <audio id="ambulanceSoundPeru" src="assets/resources/ambulancia-peru.mp3" preload="auto" loop></audio>
-  <audio id="ambulanceSoundColombia" src="assets/resources/ambulancia-colombia.mp3" preload="auto" loop></audio>
-  <audio id="ambulanceSoundChile" src="assets/resources/ambulancia-chile.mp3" preload="auto" loop></audio>
-
+ 
   <script src="script.js" defer></script>
 </body>
-
 
 </html>
