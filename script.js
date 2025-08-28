@@ -55,11 +55,13 @@ let isAmbulanceAlarmPlaying = false;
 alarmAmbulance.addEventListener('click', () => {
   if (!isAmbulanceAlarmPlaying) {
     if (locationConfig === "peru") {
-      ambulanceSoundPeru.volume = 1.0;
+      ambulanceSoundPeru.volume = 2.0;
       ambulanceSoundPeru.play().catch(err => {
         alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
         console.error(err);
       });
+       document.querySelector('.text-help-support').classList.toggle('active');
+    this.classList.toggle('active');
     } 
 
     isAmbulanceAlarmPlaying = true;
