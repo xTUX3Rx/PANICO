@@ -98,7 +98,7 @@ locationButton.addEventListener('click', () => {
       const lon = position.coords.longitude;
       const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
 
-      const numero = "51929370034"; // Reemplaza con el número real
+      const numero = "51930730128"; // Reemplaza con el número real
       const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
@@ -163,6 +163,7 @@ document.querySelectorAll('.menu-option').forEach(option => {
   });
 });
 
+
 function toggleNotification() {
   document.querySelector('.button-notification').classList.remove('active');
   document.querySelector('.wrapper-notification').classList.toggle('active');
@@ -211,5 +212,4 @@ document.querySelector('.dialog-action').addEventListener('click', () => {
 
   toggleNotification();
   executeAlarm();
-
 });
