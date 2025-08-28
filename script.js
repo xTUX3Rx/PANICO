@@ -114,13 +114,13 @@ function setPoliceNumber() {
 }
 
 setPoliceNumber();
-
+/*
 document.querySelectorAll('.grid-option').forEach(btn => {
   btn.addEventListener('click', function () {
    document.querySelector('.text-help-support').classList.toggle('active');
     this.classList.toggle('active');
   });
-});
+});*/
 
 function stopAllSounds() {
   // Sirenas
