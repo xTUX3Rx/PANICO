@@ -51,28 +51,43 @@ alarmButton.addEventListener('click', () => {
 });
 
 let isAmbulanceAlarmPlaying = false;
-//sonido ambulancia
-alarmAmbulance.addEventListener('click', () => {
-  if (!isAmbulanceAlarmPlaying) {
-    if (locationConfig === "peru") {
-      ambulanceSoundPeru.volume = 2.0;
-      ambulanceSoundPeru.play().catch(err => {
-        alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
-        console.error(err);
-      });
-       document.querySelector('.text-help-support').classList.toggle('active');
+//sonido ambulancia +----+
+document.querySelectorAll('.grid-option').forEach(btn => {
+  btn.addEventListener('click', function () {
+    // Visual: toggle clase en el texto y el botón
+    document.querySelector('.text-help-support').classList.toggle('active');
     this.classList.toggle('active');
-    } 
 
-    isAmbulanceAlarmPlaying = true;
-  } else {
-    if (locationConfig === "peru") {
-      ambulanceSoundPeru.pause();
-      ambulanceSoundPeru.currentTime = 0;
-    } 
-    isAmbulanceAlarmPlaying = false;
-  }
+    // Funcionalidad específica según ID del botón
+    if (this.id === 'alarmAmbulance') {
+      if (!isAmbulanceAlarmPlaying) {
+        if (locationConfig === "peru") {
+          ambulanceSoundPeru.volume = 1.0;
+          ambulanceSoundPeru.play().catch(err => {
+            alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
+            console.error(err);
+          });
+        }
+        isAmbulanceAlarmPlaying = true;
+      } else {
+        if (locationConfig === "peru") {
+          ambulanceSoundPeru.pause();
+          ambulanceSoundPeru.currentTime = 0;
+        }
+        isAmbulanceAlarmPlaying = false;
+      }
+    }
+
+    // Puedes agregar aquí más condiciones para otros botones si lo deseas
+  });
 });
+
+
+
+
+
+
+
 
 // Llamar al 105
 callButton.addEventListener('click', () => {
@@ -116,13 +131,7 @@ function setPoliceNumber() {
 }
 
 setPoliceNumber();
-/*
-document.querySelectorAll('.grid-option').forEach(btn => {
-  btn.addEventListener('click', function () {
-   document.querySelector('.text-help-support').classList.toggle('active');
-    this.classList.toggle('active');
-  });
-});*/
+
 
 function stopAllSounds() {
   // Sirenas
@@ -179,7 +188,7 @@ document.querySelector('.overlay-notification').addEventListener('click', toggle
 function executeAlarm() {
   if (!isAlarmPlaying) {
     if (locationConfig === "peru") {
-      alarmSoundPeru.volume = 2.0;
+      alarmSoundPeru.volume = 1.0;
       alarmSoundPeru.play().catch(err => {
         alert("El navegador impidió reproducir el sonido automáticamente. Haz clic para permitirlo.");
         console.error(err);
