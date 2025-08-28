@@ -77,12 +77,6 @@ alarmAmbulance.addEventListener('click', function () {
   }
 });
 
-
-
-
-
-
-
 // Llamar al 105
 callButton.addEventListener('click', () => {
   window.location.href = `tel:${policeNumber}`;
@@ -219,17 +213,3 @@ document.querySelector('.dialog-action').addEventListener('click', () => {
   executeAlarm();
 
 });
-/*
-myWebView.setWebViewClient(new WebViewClient() {
-    @Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        if (url.startsWith("https://wa.me/")) {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            view.getContext().startActivity(intent);
-            return true;
-        }
-        return false;
-    }
-});
-
-*/
