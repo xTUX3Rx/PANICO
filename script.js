@@ -16,7 +16,8 @@ const locationOutput = document.getElementById('locationOutput');
 //codigo para wasap
 const locationButton = document.getElementById('shareLocation');
 const callButton = document.getElementById('callPolice');
-
+//SERENASGO VARIABLE
+const ubicasereno = documento.getElementById('emergency');
 
 
 let isAlarmPlaying = false;
@@ -109,6 +110,35 @@ locationButton.addEventListener('click', () => {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
     }
 })
+
+// UBICACION SERENAZGO
+ubicasereno.addEventListener('click', () => {
+  if (!navigator.geolocation) {
+      alert("Tu navegador no soporta geolocalización.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error);
+
+    function success(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+
+      const numero = "51921694173"; // SERENAZGO
+      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
+
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+    }
+
+    function error() {
+      alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
+    }
+})
+
+
+
 
 
 function setPoliceNumber() {
