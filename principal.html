@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerta temprana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/styles/reset.css">
+  <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+
+<body>
+  <div class="wrapper-app">
+    <div class="wrapper-app__header">
+      
+    <div class="app-header__image">
+  <img src="assets/resources/FyA.png" />
+    </div>
+
+      <div class="app-header__title">BOTON DE PANICO</div>
+      <div class="app-header__panel flex">
+        <div class="icon-button button-notification">
+          <div class="badge-alert"></div>
+          <span class="material-symbols-outlined">notifications</span>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="wrapper-app__body">
+      <div class="alert-main">
+        <p class="alert-main__title">¿Necesitas ayuda de emergencia?</p>
+        <p class="alert-main__description">Emite una alerta temprana para solicitar ayuda</p>
+
+        <div class="alert-button" id="activateAlarm">
+          <div class="alert-button__animation"></div>
+          <span class="material-symbols-outlined">campaign</span>
+        </div>
+      <div class="alert-status" id="alertStatus">
+          <span class="material-symbols-outlined">check_circle</span>
+          <p>Alerta activada correctamente</p>
+        </div>
+        <p class="text-help">Presiona el botón otra vez para desactivar</p>
+      </div>
+
+      <div class="more-options">
+        <p class="more-options__title">¿Necesitas otro tipo de ayuda?</p>
+        <div class="grid-options">
+
+          <div class="grid-option call-police" id="callPolice">
+          <span class="material-symbols-outlined">local_police</span>
+          <p id="policeNumber"></p>
+          </div>
+
+
+
+
+          <div class="grid-option share-location" id="shareLocation">
+            <span class="material-symbols-outlined">location_on</span>
+            <p>Enviar ubicación</p>
+          </div>
+          
+          
+
+
+          <div class="grid-option call-police" id="alarmAmbulance">
+            <span class="material-symbols-outlined">siren</span>
+            <p>Sirena de ambulancia</p>
+          </div>
+
+          <div class="grid-option emergency_share" id="emergency">
+            <span class="material-symbols-outlined">emergency_share</span>
+            <p>Alerta Serenazgo</p>
+          </div>
+
+        </div>
+        <p class="text-help text-help-support">Presiona el botón otra vez para desactivar</p>
+        </div>
+
+    </div>
+
+    <div id="locationOutput"></div>
+
+    <div class="wrapper-notification">
+      <div class="dialog-notification">
+        <p>Descargue la APP Boton de Panico</p>
+        <div class="dialog-map">
+          <div class="dialog-map__animation alert-circle-1"></div>
+          <div class="dialog-map__animation alert-circle-2"></div>
+         <img src="assets/resources/QR.png" alt="">
+        </div>
+        <span class="dialog-action">Clic para cerrar</span>
+      </div>
+      </div>
+
+
+      <div class="overlay-notification"></div>
+
+  </div>
+
+  <div class="footer">
+    <p id="">Alumnos:</p>
+    <p id="">Jhulyeth Quispe Namo</p>
+    <p id="">Valentino Ramires Tanta</p>
+    <p id="">Piero Tucto Crisologo</p>
+    <p id="">Angelina Palacios Chavarri</p>
+    <p id="">Samy Chavez Diaz</p>
+       
+  </div>
+
+  <audio id="alarmSoundPeru" src="assets/resources/sirena-peru.mp3" preload="auto" loop></audio>
+  <audio id="ambulanceSoundPeru" src="assets/resources/ambulancia-peru.mp3" preload="auto" loop></audio>
+ 
+  <script src="script.js" defer></script>
+</body>
+
+</html>
