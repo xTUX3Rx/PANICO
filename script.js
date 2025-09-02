@@ -17,7 +17,7 @@ const locationOutput = document.getElementById('locationOutput');
 const locationButton = document.getElementById('shareLocation');
 const callButton = document.getElementById('callPolice');
 //SERENASGO VARIABLE
-const ubicasereno = documento.getElementById('emergency');
+const ubicasereno = document.getElementById('emergency');
 
 
 let isAlarmPlaying = false;
