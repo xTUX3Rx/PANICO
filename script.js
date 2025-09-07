@@ -91,9 +91,7 @@ locationButton.addEventListener('click', () => {
       alert("Tu navegador no soporta geolocalización.");
       return;
     }
-
     navigator.geolocation.getCurrentPosition(success, error);
-
     function success(position) {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
@@ -105,7 +103,6 @@ locationButton.addEventListener('click', () => {
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
       window.open(url, '_blank');
     }
-
     function error() {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
     }
