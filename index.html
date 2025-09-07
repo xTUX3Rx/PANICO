@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN PANICO</title>
-    <link rel="stylesheet" href="assets/styles/stylog.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGIN PÁNICO</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+    
+  <link rel="stylesheet" href="assets/styles/reset.css">
+  <link rel="stylesheet" href="assets/styles/login.css">
 </head>
+
 <body>
-    <div class="login-screen" id="loginScreen">
-  <div class="login-box">
-    <h2>Iniciar Sesión</h2>
-    <input type="text" id="username" placeholder="Usuario" />
-    <input type="password" id="password" placeholder="Contraseña" />
-    <button id="loginButton">Ingresar</button>
-    <p class="login-error" id="loginError">Usuario o contraseña incorrectos</p>
- 
-<p class="register-link">
-  ¿No estás registrado? 
-  <a href="#" id="openRegisterModal">Regístrate aquí</a>
-</p>
+  <div class="login-screen" id="loginScreen">
+    <div class="login-image">
+      <div class="login-image__filter"></div>
+      <img src="assets/images/panic-background.png" alt="dont-panic">
+    </div>
 
-</div>
+    <div class="login-box">
+      <h2>Iniciar Sesión</h2>
+      <input type="text" id="username" placeholder="Usuario" />
+      <input type="password" id="password" placeholder="Contraseña" />
+      <button id="loginButton">Ingresar</button>
+      <p class="login-error" id="loginError">Usuario o contraseña incorrectos</p>
 
-<div class="modal-overlay" id="modalOverlay"></div>
-<div class="modal-register" id="modalRegister">
-  <div class="modal-content">
-    <img src="assets/resources/registro.png" alt="Registro" />
-    <p>Solicita tus credenciales a través de WhatsApp</p>
-    <a href="https://wa.me/51929370034?text=Hola,%20necesito%20mis%20credenciales%20para%20usar%20el%20Botón%20de%20Pánico" 
-       target="_blank" class="whatsapp-button">
-      Solicitar por WhatsApp
-    </a>
-    <button class="close-modal" id="closeModal">Cerrar</button>
+      <p class="register-link">
+        ¿No estás registrado?
+        <a href="#" id="openRegisterModal">Regístrate aquí</a>
+      </p>
+
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-register" id="modalRegister">
+      <div class="modal-content">
+        <img src="assets/resources/registro.png" alt="Registro" />
+        <p>Solicita tus credenciales a través de WhatsApp</p>
+        <a href="https://wa.me/51929370034?text=Hola,%20necesito%20mis%20credenciales%20para%20usar%20el%20Botón%20de%20Pánico"
+          target="_blank" class="whatsapp-button">
+          Solicitar por WhatsApp
+        </a>
+        <button class="close-modal" id="closeModal">Cerrar</button>
+      </div>
+    </div>
+
   </div>
-</div>
-
-</div>
 
   <script src="scriplog.js" defer></script>
 </body>
+
 </html>
