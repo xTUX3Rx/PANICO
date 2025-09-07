@@ -8,7 +8,7 @@
     const errorMsg = document.getElementById("loginError");
 
     if (user === validUsername && pass === validPassword) {
-     window.location.href = "principal.html"; // Redirige a index.html
+     window.location.href = "app/components/home/principal.html"; // Redirige a index.html
 } else {
   errorMsg.style.display = "block";
 }

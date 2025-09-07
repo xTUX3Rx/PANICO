@@ -12,8 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/styles/reset.css">
-  <link rel="stylesheet" href="assets/styles/style.css">
+  <link rel="stylesheet" href="../../../assets/styles/reset.css">
+  <link rel="stylesheet" href="../../../assets/styles/style.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
     <div class="wrapper-app__header">
       
     <div class="app-header__image">
-  <img src="assets/resources/FyA.png" />
+  <img src="../../../assets/resources/FyA.png" />
     </div>
 
       <div class="app-header__title">BOTON DE PANICO</div>
@@ -56,11 +56,8 @@
 
           <div class="grid-option call-police" id="callPolice">
           <span class="material-symbols-outlined">local_police</span>
-          <p id="policeNumber"></p>
+          <p id="policeNumber">Llamar a Policia</p>
           </div>
-
-
-
 
           <div class="grid-option share-location" id="shareLocation">
             <span class="material-symbols-outlined">location_on</span>
@@ -71,19 +68,19 @@
             <p>Sirena de ambulancia</p>
           </div>
 
-          <div class="grid-option emergency_share" id="emergency">
-            <span class="material-symbols-outlined">emergency_share</span>
-            <p>Alerta Serenazgo</p>
+          <div class="grid-option emergency_share" id="callSerenazgo">
+            <span class="material-symbols-outlined">policy_alert</span>
+            <p>Llamar a Serenazgo</p>
           </div>
 
-          <div class="grid-option call-police" id="llamaSAMU">
+          <div class="grid-option call-police" id="callSamu">
             <span class="material-symbols-outlined">health_metrics</span>
-            <p>Número de SAMU</p>
+            <p>Llamar al SAMU</p>
           </div>
 
-          <div class="grid-option emergency_share" id="llamaCEM">
+          <div class="grid-option emergency_share" id="callCem">
             <span class="material-symbols-outlined">face_3</span>
-            <p>Línea de Emergencia Mujer</p>
+            <p>Llamar al CEM</p>
           </div>
 
 
@@ -103,7 +100,7 @@
         <div class="dialog-map">
           <div class="dialog-map__animation alert-circle-1"></div>
           <div class="dialog-map__animation alert-circle-2"></div>
-         <img src="assets/resources/QR.png" alt="">
+         <img src="../../../assets/resources/QR.png" alt="">
         </div>
         <span class="dialog-action">Clic para cerrar</span>
       </div>
@@ -124,10 +121,10 @@
        
   </div>
 
-  <audio id="alarmSoundPeru" src="assets/resources/sirena-peru.mp3" preload="auto" loop></audio>
-  <audio id="ambulanceSoundPeru" src="assets/resources/ambulancia-peru.mp3" preload="auto" loop></audio>
+  <audio id="alarmSoundPeru" src="../../../assets/resources/sirena-peru.mp3" preload="auto" loop></audio>
+  <audio id="ambulanceSoundPeru" src="../../../assets/resources/ambulancia-peru.mp3" preload="auto" loop></audio>
  
-  <script src="script.js" defer></script>
+  <script src="../../../script.js" defer></script>
 </body>
 
 </html>

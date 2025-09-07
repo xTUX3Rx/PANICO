@@ -17,8 +17,9 @@ const locationOutput = document.getElementById('locationOutput');
 const locationButton = document.getElementById('shareLocation');
 const callButton = document.getElementById('callPolice');
 //SERENASGO VARIABLE
-const ubicasereno = document.getElementById('emergency');
-
+const callSerenazgo = document.getElementById('callSerenazgo');
+const callSamu = document.getElementById('callSamu');
+const callCem = document.getElementById('callCem');
 
 let isAlarmPlaying = false;
 
@@ -107,7 +108,23 @@ locationButton.addEventListener('click', () => {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
     }
 })
+// Llamar al Serenazgo
+callSerenazgo.addEventListener('click', () => {
+  window.location.href = `tel:921694173`;
+});
 
+// Llamar al SAMU
+callSamu.addEventListener('click', () => {
+  window.location.href = `tel:903068245`;
+});
+// Llamar al CEM
+callCem.addEventListener('click', () => {
+  window.location.href = `tel:989366194`;
+});
+
+
+
+/*
 // UBICACION SERENAZGO
 ubicasereno.addEventListener('click', () => {
   if (!navigator.geolocation) {
@@ -133,8 +150,7 @@ ubicasereno.addEventListener('click', () => {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
     }
 })
-
-
+*/
 
 
 
