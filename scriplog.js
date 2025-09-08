@@ -22,7 +22,7 @@ const errorMsg = document.getElementById("loginError");
 
         // Redirigir a la página principal
         window.location.href = "app/components/home/principal.html"; // Redirige
-        localStorage.setItem("telefono", usuarioValido.telefono);
+        
       } else {
         errorMsg.style.display = "block";
       }
