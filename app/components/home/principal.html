@@ -14,6 +14,9 @@
 
   <link rel="stylesheet" href="../../../assets/styles/reset.css">
   <link rel="stylesheet" href="../../../assets/styles/style.css">
+
+  <link rel="manifest" href="../../../manifest.json" />
+<meta name="theme-color" content="#d32f2f" />
 </head>
 
 <body>
@@ -125,6 +128,13 @@
   <audio id="ambulanceSoundPeru" src="../../../assets/resources/ambulancia-peru.mp3" preload="auto" loop></audio>
  
   <script src="../../../script.js" defer></script>
+ <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('✅ Service Worker registrado:', reg))
+      .catch(err => console.error('❌ Error al registrar SW:', err));
+  }
+</script>
 </body>
 
 </html>
