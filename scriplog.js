@@ -1,19 +1,11 @@
  
     const usuarios = [
-<<<<<<< HEAD
 { usuario: "admin", clave: "1234", telefono: "51929370034" },
 { usuario: "jordanojulca", clave: "yo2025", telefono: "51948581150" },
 { usuario: "samychavez", clave: "123", telefono: "51910269107" },
 { usuario: "piero", clave: "proyecto10", telefono: "51921687047" },
 { usuario: "julieta", clave: "2012", telefono: "51973145507" },
 { usuario: "jesusadriano", clave: "4444", telefono: "51900681492" }
-=======
-      { usuario: "admin", clave: "1234", telefono: "123456789" },
-      { usuario: "juan", clave: "abcd", telefono: "987654321" },
-      { usuario: "ana", clave: "pass1", telefono: "555123456" },
-      { usuario: "carlos", clave: "clave", telefono: "111222333" },
-      { usuario: "lucia", clave: "lucia2025", telefono: "444555666" }
->>>>>>> df36b57466f4b775b10dda51c661c740ba949940
     ];
 
    document.getElementById("loginButton").addEventListener("click", function () { 
