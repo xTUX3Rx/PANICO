@@ -86,31 +86,63 @@ callButton.addEventListener('click', () => {
 
 
 let watchId = null;
+
+fetch('assets/data/usuarios.json')
+  .then(response => response.json())
+  .then(usuarioActivo => {
+    compartirUbicacion(usuarioActivo);
+  })
+  .catch(error => {
+    console.error('Error al obtener usuarioActivo:', error);
+    alert('No se pudo obtener el usuario activo.');
+  });
+
 // Compartir ubicación en tiempo real
-locationButton.addEventListener('click', () => {
-  if (!navigator.geolocation) {
+document.addEventListener('DOMContentLoaded', () => {
+  const locationButton = document.getElementById('shareLocation');
+
+  if (!locationButton) {
+    console.error('Botón de ubicación no encontrado');
+    return;
+  }
+
+  locationButton.addEventListener('click', () => {
+    if (!navigator.geolocation) {
       alert("Tu navegador no soporta geolocalización.");
       return;
     }
+
     navigator.geolocation.getCurrentPosition(success, error);
+
     function success(position) {
       const lat = position.coords.latitude;
       const lon = position.coords.longitude;
       const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
-const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
-let numero = "51929370034"; // Valor por defecto, por si algo falla
-if (usuarioActivo && usuarioActivo.celular) {
-  numero = usuarioActivo.celular;
-}
-      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
+      const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
+      let numero = "51929370034"; // Valor por defecto
+
+      if (usuarioActivo && usuarioActivo.celular) {
+        numero = usuarioActivo.celular;
+      }
+
+      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_blank');
+
+      window.open(url, '_blank'); // También puedes usar location.href
     }
+
     function error() {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
     }
+  });
 });
+
+
+
+
+
+
 // Llamar al Serenazgo
 callSerenazgo.addEventListener('click', () => {
   window.location.href = `tel:921694173`;
