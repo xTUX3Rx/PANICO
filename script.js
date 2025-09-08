@@ -1,10 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-  function $(selector) {
-    return document.querySelector(selector);
-  }
-
-  (function appRunning() {
-    const telefonoGuardado = localStorage.getItem("telefono");
+﻿    const telefonoGuardado = localStorage.getItem("telefono");
     const alertStatus = $('#alertStatus');
 
     const alarmButton = $('#activateAlarm');
@@ -265,13 +259,9 @@
 
 
     function logout() {
-      console.log('Cerrando sesión...');
+      //console.log('Cerrando sesión...');
       localStorage.clear();
       window.location.href = "../../../index.html";
     }
 
     $('#logoutBtn').addEventListener('click', logout);
-
-  })()
-
-});
