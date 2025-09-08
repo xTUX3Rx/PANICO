@@ -1,4 +1,4 @@
-localStorage.clear();
+
 const usuarios = [
 { usuario: "admin", clave: "1234", telefono: "51929370034" },
 { usuario: "jordanojulca", clave: "yo2025", telefono: "51948581150" },
