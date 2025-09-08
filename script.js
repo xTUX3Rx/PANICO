@@ -111,7 +111,11 @@ if (usuarioActivo && usuarioActivo.celular) {
     function error() {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
     }
-})
+});
+
+
+
+
 // Llamar al Serenazgo
 callSerenazgo.addEventListener('click', () => {
   window.location.href = `tel:921694173`;
