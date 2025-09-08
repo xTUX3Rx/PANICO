@@ -87,38 +87,30 @@ callButton.addEventListener('click', () => {
 
 let watchId = null;
 // Compartir ubicación en tiempo real
-document.addEventListener('click', function (e) {
+locationButton.addEventListener('click', () => {
   if (!navigator.geolocation) {
-    alert("Tu navegador no soporta geolocalización.");
-    e.preventDefault();
-    return;
-  }
-
-  e.preventDefault(); // prevenir salto inmediato
-
-  navigator.geolocation.getCurrentPosition(position => {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
-
-    const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
-    let numero = "51929370034";
-    if (usuarioActivo && usuarioActivo.celular) {
-      numero = usuarioActivo.celular;
+      alert("Tu navegador no soporta geolocalización.");
+      return;
     }
+    navigator.geolocation.getCurrentPosition(success, error);
+    function success(position) {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
+let numero = "51929370034"; // Valor por defecto, por si algo falla
+if (usuarioActivo && usuarioActivo.celular) {
+  numero = usuarioActivo.celular;
+}
+      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
-    const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-    // Asignar el link directamente
-    this.href = url;
-    this.click();
-  }, () => {
-    alert("No se pudo obtener tu ubicación.");
-  });
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+    }
+    function error() {
+      alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
+    }
 });
-
-
 // Llamar al Serenazgo
 callSerenazgo.addEventListener('click', () => {
   window.location.href = `tel:921694173`;
@@ -200,7 +192,7 @@ function toggleOverlay() {
 
 document.querySelectorAll('.button-menu').forEach(btn => {
   btn.addEventListener('click', toggleOverlay);
-})
+});
 
 document.querySelector('.overlay-menu').addEventListener('click', toggleOverlay);
 
