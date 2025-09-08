@@ -29,7 +29,7 @@ document.getElementById('loginButton').addEventListener('click', function () {
   // ✅ Login exitoso
   alert(`Bienvenido, ${usuario.usuario}!`);
   // Aquí podrías guardar la sesión o redirigir:
-  // localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
+  localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
   window.location.href = '../../app/components/home/principal.html';
 });
 
