@@ -100,7 +100,7 @@ locationButton.addEventListener('click', () => {
 const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
 
 if (usuarioActivo && usuarioActivo.celular) {
-  numero = usuarioActivo.celular;
+let  numero = usuarioActivo.celular;
 }
       const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
