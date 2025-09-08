@@ -1,4 +1,4 @@
-﻿
+﻿const telefonoGuardado = localStorage.getItem("telefono");
 const alertStatus = document.getElementById('alertStatus');
 
 const alarmButton = document.getElementById('activateAlarm');
@@ -98,7 +98,7 @@ locationButton.addEventListener('click', () => {
       const lon = position.coords.longitude;
       const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
 
-      const numero = localStorage.getItem("telefono"); // Reemplaza con el número real
+      const numero = telefonoGuardado; // Reemplaza con el número real
       const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
