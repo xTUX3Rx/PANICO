@@ -98,9 +98,9 @@ locationButton.addEventListener('click', () => {
       const lon = position.coords.longitude;
       const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
 const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
-
+let numero = "51929370034"; // Valor por defecto, por si algo falla
 if (usuarioActivo && usuarioActivo.celular) {
-  numero = usuarioActivo.celular;
+let  numero = usuarioActivo.celular;
 }
       const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
