@@ -27,6 +27,6 @@
   {
     "usuario": "jesusadriano",
     "clave": "4444",
-    "usuario":"51900681492"
+    "celular":"51900681492"
   }
 ]
