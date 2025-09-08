@@ -87,21 +87,22 @@ callButton.addEventListener('click', () => {
 
 let watchId = null;
 // Compartir ubicación en tiempo real
-locationButton.addEventListener('click', () => {
+document.addEventListener('click', function (e) {
   if (!navigator.geolocation) {
     alert("Tu navegador no soporta geolocalización.");
+    e.preventDefault();
     return;
   }
 
-  navigator.geolocation.getCurrentPosition(success, error);
+  e.preventDefault(); // prevenir salto inmediato
 
-  function success(position) {
+  navigator.geolocation.getCurrentPosition(position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
 
     const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
-    let numero = "51929370034"; // Valor por defecto
+    let numero = "51929370034";
     if (usuarioActivo && usuarioActivo.celular) {
       numero = usuarioActivo.celular;
     }
@@ -109,14 +110,14 @@ locationButton.addEventListener('click', () => {
     const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
-    // Usar location.href en lugar de window.open
-    window.location.href = url;
-  }
-
-  function error() {
-    alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
-  }
+    // Asignar el link directamente
+    this.href = url;
+    this.click();
+  }, () => {
+    alert("No se pudo obtener tu ubicación.");
+  });
 });
+
 
 // Llamar al Serenazgo
 callSerenazgo.addEventListener('click', () => {
