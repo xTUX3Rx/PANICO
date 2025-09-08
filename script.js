@@ -102,7 +102,7 @@ locationButton.addEventListener('click', () => {
       const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_self');
+      window.open(url, '_blank');
     }
     function error() {
       alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
