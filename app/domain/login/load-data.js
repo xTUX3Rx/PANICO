@@ -1,8 +1,0 @@
-(function login() {
-  fetch('assets/data/usuarios.json')
-    .then(response => response.json())
-    .then(data => {
-      localStorage.setItem('usuarios', JSON.stringify(data));
-    })
-    .catch(error => console.error('Error al cargar el JSON:', error));
-})();
