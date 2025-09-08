@@ -1,14 +1,32 @@
 [
   {
-    "dni": "77142248",
-    "clave": "admin"
+    "usuario": "admin",
+    "clave": "1234",
+    "celular":"929370034"
   },
   {
-    "dni": "12345678",
-    "clave": "12345678"
+    "usuario": "jordanojulca",
+    "clave": "yo2025",
+    "celular":"929370034"
   },
   {
-    "dni": "77777777",
-    "clave": "midni"
+    "usuario": "samychavez",
+    "clave": "123",
+    "celular":"929370034"
+  },
+  {
+    "usuario": "piero",
+    "clave": "proyecto10",
+    "celular":"929370034"
+  },
+  {
+    "usuario": "julieta",
+    "clave": "2012",
+    "celular":"929370034"
+  },
+  {
+    "usuario": "jesusadriano",
+    "clave": "4444",
+    "usuario":"929370034"
   }
 ]
