@@ -6,7 +6,6 @@
 { usuario: "piero", clave: "proyecto10", telefono: "51921687047" },
 { usuario: "julieta", clave: "2012", telefono: "51973145507" },
 { usuario: "jesusadriano", clave: "4444", telefono: "51900681492" }
->>>>>>>>> Temporary merge branch 2
     ];
 
    document.getElementById("loginButton").addEventListener("click", function () { 
