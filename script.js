@@ -1,4 +1,4 @@
-﻿    const telefonoGuardado = localStorage.getItem("telefono");
+﻿const telefonoGuardado = localStorage.getItem("telefono");
     const alertStatus = $('#alertStatus');
 
     const alarmButton = $('#activateAlarm');
@@ -263,5 +263,5 @@
       localStorage.clear();
       window.location.href = "../../../index.html";
     }
-
-    $('#logoutBtn').addEventListener('click', logout);
+$('#logoutBtn').addEventListener('click', logout);
+    
