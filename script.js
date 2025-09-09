@@ -166,7 +166,7 @@ function setPoliceNumber() {
   if (locationConfig === "peru") {
     policeNumber = '105';
   }
-  document.getElementById('policeNumber').textContent = `Llamar a Policia`;
+  document.getElementById('policeNumber').textContent = `Llamar al ${policeNumber}`;
 }
 
 setPoliceNumber();
@@ -264,12 +264,3 @@ document.querySelector('.dialog-action').addEventListener('click', () => {
   toggleNotification();
   executeAlarm();
 });
-
-
-//boton salir
- function logout() {
-     localStorage.clear();
-      window.location.href = "../../..index.html";
-    }
-
-    $('#logoutBtn').addEventListener('click', logout);
