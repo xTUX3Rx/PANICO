@@ -1,6 +1,6 @@
 (function logIn() {
   on('#loginButton', 'click', function () {
-    const usernameInput = $('#username').value.trim();
+    const usernameInput = $('#username').value.toLowerCase().trim();
     const passwordInput = $('#password').value;
     const errorMsg = $('#loginError');
 

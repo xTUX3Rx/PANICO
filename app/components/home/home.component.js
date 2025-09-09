@@ -15,6 +15,7 @@ let isAlarmPlaying = false;
 let locationConfig = "peru";
 let policeNumber = '105';
 let isAmbulanceAlarmPlaying = false;
+let loggedUser = {};
 
 function error() {
   alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
@@ -24,6 +25,19 @@ function logout() {
   localStorage.clear();
   window.location.href = "../../../index.html";
 }
+
+function getLoggedUser() {
+  loggedUser = JSON.parse(localStorage.getItem('usuarioActivo'));
+  console.log(loggedUser)
+}
+
+function setNickname(nickname) {
+  $("#nickname").innerText = nickname;
+  console.log(nickname)
+}
+
+getLoggedUser();
+setNickname(loggedUser.nickname);
 
 on('#activateAlarm', 'click', () => {
   if (!isAlarmPlaying) {
@@ -82,7 +96,6 @@ on('#callPolice', 'click', () => {
   window.location.href = `tel:${policeNumber}`;
 });
 
-
 let watchId = null;
 // Compartir ubicación en tiempo real
 on('#shareLocation', 'click', () => {
@@ -97,8 +110,8 @@ on('#shareLocation', 'click', () => {
     const lon = position.coords.longitude;
     const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
     const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
-
     let numero = "51929370034"; // Valor por defecto, por si algo falla
+
     if (usuarioActivo && usuarioActivo.celular) {
       numero = usuarioActivo.celular;
     }

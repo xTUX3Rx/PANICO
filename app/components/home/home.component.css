@@ -98,3 +98,14 @@
 .wrapper-app {
   padding-bottom: 3rem;
 }
+
+.welcome-message {
+  background-color: rgb(168, 188, 255);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+}
+
+.welcome-message h3 {
+  margin-bottom: 0.5rem;
+}
