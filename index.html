@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-    
+
   <link rel="stylesheet" href="assets/styles/reset.css">
   <link rel="stylesheet" href="assets/styles/login.css">
 </head>
@@ -45,39 +45,18 @@
         <p>Solicita tus credenciales a través de WhatsApp</p>
         <a href="https://wa.me/51945152844?text=Hola,%20estoy%20interesado%20en%20crear%20una%20cuenta%20para%20usar%20el%20Botón%20de%20Pánico."
           target="_blank" class="whatsapp-button">
-          Solicitalo por WhatsApp
+          Solicítalo por WhatsApp
         </a>
         <button class="close-modal" id="closeModal">Cerrar</button>
       </div>
     </div>
 
   </div>
-<SCRIPt>
-    const openModalBtn = document.getElementById("openRegisterModal");
-  const closeModalBtn = document.getElementById("closeModal");
-  const modal = document.getElementById("modalRegister");
-  const overlay = document.getElementById("modalOverlay");
 
-  openModalBtn.addEventListener("click", () => {
-    modal.style.display = "block";
-    overlay.style.display = "block";
-  });
-
-  closeModalBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
-  });
-
-  overlay.addEventListener("click", () => {
-    modal.style.display = "none";
-    overlay.style.display = "none";
-  });
-
-</SCRIPt>
-  <!-- <script src="scriplog.js" defer></script> -->
   <script src="app/domain/login/load-data.js" defer></script>
+  <script src="app/shared/helper/helper.js" defer></script>
+  <script src="app/domain/register/register.js" defer></script>
   <script src="app/domain/login/log-in.js" defer></script>
 </body>
-
 
 </html>
