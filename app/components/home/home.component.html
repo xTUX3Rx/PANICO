@@ -19,18 +19,18 @@
 <body>
   <div class="wrapper-app">
     <div class="wrapper-app__header">
-      
-    <div class="app-header__image">
-  <img src="../../../assets/resources/FyA.png" />
-    </div>
 
-      <div class="app-header__title">BOTON DE PANICO</div>
+      <div class="app-header__image">
+        <img src="../../../assets/resources/FyA.png" />
+      </div>
+
+      <div class="app-header__title">BOTÓN DE PÁNICO</div>
       <div class="app-header__panel flex">
         <div class="icon-button button-notification">
           <div class="badge-alert"></div>
           <span class="material-symbols-outlined">notifications</span>
         </div>
-        
+
       </div>
     </div>
 
@@ -43,7 +43,7 @@
           <div class="alert-button__animation"></div>
           <span class="material-symbols-outlined">campaign</span>
         </div>
-      <div class="alert-status" id="alertStatus">
+        <div class="alert-status" id="alertStatus">
           <span class="material-symbols-outlined">check_circle</span>
           <p>Alerta activada correctamente</p>
         </div>
@@ -55,14 +55,14 @@
         <div class="grid-options">
 
           <div class="grid-option call-police" id="callPolice">
-          <span class="material-symbols-outlined">local_police</span>
-          <p id="policeNumber">Llamar a Policia</p>
+            <span class="material-symbols-outlined">local_police</span>
+            <p id="policeNumber">Llamar a Policía</p>
           </div>
 
           <div class="grid-option share-location" id="shareLocation">
             <span class="material-symbols-outlined">location_on</span>
             <p>Enviar ubicación</p>
-          </div>      
+          </div>
           <div class="grid-option call-police" id="alarmAmbulance">
             <span class="material-symbols-outlined">siren</span>
             <p>Sirena de ambulancia</p>
@@ -88,7 +88,7 @@
 
         </div>
         <p class="text-help text-help-support">Presiona el botón otra vez para desactivar</p>
-        </div>
+      </div>
 
     </div>
 
@@ -96,26 +96,27 @@
 
     <div class="wrapper-notification">
       <div class="dialog-notification">
-        <p>Descargue la APP Boton de Panico</p>
+        <p>Descargue la APP Botón de Pánico</p>
         <div class="dialog-map">
           <div class="dialog-map__animation alert-circle-1"></div>
           <div class="dialog-map__animation alert-circle-2"></div>
-         <img src="../../../assets/resources/QR.png" alt="">
+          <img src="../../../assets/resources/QR.png" alt="">
         </div>
         <span class="dialog-action">Clic para cerrar</span>
       </div>
-      </div>
+    </div>
 
 
-      <div class="overlay-notification"></div>
+    <div class="overlay-notification"></div>
 
   </div>
 
-<style>
+  <style>
     .boton-container {
       display: flex;
       justify-content: center;
     }
+
     #logoutBtn {
       padding: 12px 24px;
       background-color: #ff4d4d;
@@ -124,7 +125,7 @@
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease;
     }
 
@@ -136,7 +137,7 @@
   <div class="boton-container">
     <button id="logoutBtn">Cerrar sesión</button>
   </div>
-    
+
   <div class="footer">
     <p id="">Alumnos:</p>
     <p id="">Jhulyeth Yamilet Quispe Namo</p>
@@ -144,13 +145,14 @@
     <p id="">Justin Jordano Julca Pomatanta</p>
     <p id="">Piero Alexander Tucto Crisologo</p>
     <p id="">Samy Yampier Chavez Diaz</p>
-       
+
   </div>
 
   <audio id="alarmSoundPeru" src="../../../assets/resources/sirena-peru.mp3" preload="auto" loop></audio>
   <audio id="ambulanceSoundPeru" src="../../../assets/resources/ambulancia-peru.mp3" preload="auto" loop></audio>
- 
-  <script src="../../../script.js" defer></script>
+
+  <script src="../../shared/helper/helper.js" defer></script>
+  <script src="home.component.js" defer></script>
 </body>
 
 </html>
