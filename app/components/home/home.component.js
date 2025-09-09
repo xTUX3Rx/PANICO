@@ -256,3 +256,17 @@ on('.dialog-action', 'click', () => {
   executeAlarm();
 });
 on('#logoutBtn', 'click', logout);
+
+
+function hiddenWelcome() {
+  const time = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000;
+  setTimeout(() => {
+    $('.welcome').classList.add('hidden');
+  }, time)
+}
+
+hiddenWelcome();
+
+$('.welcome').addEventListener('transitionend', function () {
+  this.remove();
+});

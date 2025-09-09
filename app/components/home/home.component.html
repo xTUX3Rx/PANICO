@@ -14,9 +14,21 @@
 
   <link rel="stylesheet" href="../../../assets/styles/reset.css">
   <link rel="stylesheet" href="../../../assets/styles/style.css">
+  <link rel="stylesheet" href="home.component.css">
 </head>
 
 <body>
+  <div class="welcome">
+    <div class="welcome__image">
+      <img src="https://images.pexels.com/photos/3525397/pexels-photo-3525397.jpeg" />
+    </div>
+    <div class="welcome__content">
+      <h2>¡Bienvenido!</h2>
+      <p>Recuerda tener una lista de números de contactos a la mano para cuando lo necesites</p>
+      <span>Cargando...</span>
+    </div>
+  </div>
+
   <div class="wrapper-app">
     <div class="wrapper-app__header">
 
@@ -109,43 +121,18 @@
 
     <div class="overlay-notification"></div>
 
-  </div>
+    <div class="boton-container">
+      <button id="logoutBtn">Cerrar sesión</button>
+    </div>
 
-  <style>
-    .boton-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    #logoutBtn {
-      padding: 12px 24px;
-      background-color: #ff4d4d;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
-    }
-
-    #logoutBtn:hover {
-      background-color: #e60000;
-    }
-  </style>
-
-  <div class="boton-container">
-    <button id="logoutBtn">Cerrar sesión</button>
-  </div>
-
-  <div class="footer">
-    <p id="">Alumnos:</p>
-    <p id="">Jhulyeth Yamilet Quispe Namo</p>
-    <p id="">Ivan Valentino Ramires Tanta</p>
-    <p id="">Justin Jordano Julca Pomatanta</p>
-    <p id="">Piero Alexander Tucto Crisologo</p>
-    <p id="">Samy Yampier Chavez Diaz</p>
-
+    <div class="footer">
+      <p id="">Alumnos:</p>
+      <p id="">Jhulyeth Yamilet Quispe Namo</p>
+      <p id="">Ivan Valentino Ramires Tanta</p>
+      <p id="">Justin Jordano Julca Pomatanta</p>
+      <p id="">Piero Alexander Tucto Crisologo</p>
+      <p id="">Samy Yampier Chavez Diaz</p>
+    </div>
   </div>
 
   <audio id="alarmSoundPeru" src="../../../assets/resources/sirena-peru.mp3" preload="auto" loop></audio>
