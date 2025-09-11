@@ -1,11 +1,8 @@
 // public/script.js
-
-const form = document.getElementById("login-box");
+const loginButton = document.getElementById("loginButton");
 const responseEl = document.getElementById("response");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
+loginButton.addEventListener("click", async () => {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
 
@@ -19,8 +16,10 @@ form.addEventListener("submit", async (e) => {
   if (data.success) {
     responseEl.textContent = "✅ " + data.message;
     responseEl.style.color = "green";
+    document.getElementById("loginError").style.display = "none";
   } else {
     responseEl.textContent = "❌ " + data.message;
     responseEl.style.color = "red";
+    document.getElementById("loginError").style.display = "block";
   }
 });
