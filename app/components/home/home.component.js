@@ -23,7 +23,7 @@ function error() {
 
 function logout() {
   localStorage.clear();
-  window.location.href = "../../../index.html";
+  window.location.href = "../../../public/index.html";
 }
 
 function getLoggedUser() {

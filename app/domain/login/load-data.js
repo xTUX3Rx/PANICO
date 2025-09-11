@@ -1,5 +1,5 @@
 (function login() {
-  fetch('assets/data/usuarios.json')
+  fetch('../assets/data/usuarios.json')
     .then(response => response.json())
     .then(data => {
       localStorage.setItem('usuario', JSON.stringify(data));
