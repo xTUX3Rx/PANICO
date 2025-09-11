@@ -1,3 +1,15 @@
 [build]
-  functions = "functions"
-  publish = "public"
+  command = "npm run build"          # o "npm run start" si no compilas nada
+  publish = "frontend/public"        # aquí está tu index.html (login)
+  functions = "backend/functions"    # carpeta donde pondrás tus funciones Node.js
+
+[dev]
+  command = "npm start"              # qué hacer en desarrollo
+  port = 8888
+  publish = "frontend/public"
+  functions = "backend/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
