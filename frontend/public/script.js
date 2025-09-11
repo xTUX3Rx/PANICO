@@ -1,6 +1,4 @@
-// public/script.js
 const loginButton = document.getElementById("loginButton");
-const responseEl = document.getElementById("response");
 
 loginButton.addEventListener("click", async () => {
   const username = document.getElementById("username").value;
@@ -14,12 +12,19 @@ loginButton.addEventListener("click", async () => {
   const data = await res.json();
 
   if (data.success) {
-    responseEl.textContent = "✅ " + data.message;
-    responseEl.style.color = "green";
-    document.getElementById("loginError").style.display = "none";
+    localStorage.setItem("activeUser", JSON.stringify(data.user));
+    window.location.href = "./app/home/home.component.html";
   } else {
-    responseEl.textContent = "❌ " + data.message;
-    responseEl.style.color = "red";
-    document.getElementById("loginError").style.display = "block";
+    alert("❌ " + data.message);
+  }
+});
+
+// Al cargar index.html, verificar si ya hay sesión
+window.addEventListener("DOMContentLoaded", async () => {
+  const res = await fetch("/.netlify/functions/session");
+  const data = await res.json();
+
+  if (data.active) {
+    window.location.href = "./app/home/home.component.html";
   }
 });
