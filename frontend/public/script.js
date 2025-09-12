@@ -1,10 +1,10 @@
 const loginButton = document.getElementById("loginButton");
 
 // Verifica si hay usuario activo en localStorage
-const usuarioActivo = localStorage.getItem('usuarioActivo');
-if (usuarioActivo) {
-  window.location.href = 'app/components/home/home.component.html';
-}
+//const usuarioActivo = localStorage.getItem('usuarioActivo');
+//if (usuarioActivo) {
+ // window.location.href = 'app/components/home/home.component.html';
+// }
 
 loginButton.addEventListener("click", async () => {
   const username = document.getElementById("username").value;
