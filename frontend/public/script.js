@@ -1,6 +1,6 @@
 const loginButton = document.getElementById("loginButton");
 
-// Usar siempre la misma clave
+// Verifica si hay usuario activo en localStorage
 const usuarioActivo = localStorage.getItem('usuarioActivo');
 if (usuarioActivo) {
   window.location.href = 'app/components/home/home.component.html';
@@ -19,7 +19,6 @@ loginButton.addEventListener("click", async () => {
   const data = await res.json();
 
   if (data.success) {
-    // Guardar con la misma clave
     localStorage.setItem("usuarioActivo", JSON.stringify(data.user));
     window.location.href = "app/components/home/home.component.html";
   } else {
@@ -27,11 +26,11 @@ loginButton.addEventListener("click", async () => {
   }
 });
 
+// Validación extra con backend (opcional)
 fetch('/.netlify/functions/getActiveUser')
   .then(res => res.json())
   .then(data => {
     if (data.user) {
-      // Usuario activo, redirige al home
       window.location.href = 'app/components/home/home.component.html';
     }
   });
