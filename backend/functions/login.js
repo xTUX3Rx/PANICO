@@ -23,10 +23,10 @@ exports.handler = async (event) => {
       };
     }
 
-    // Guardar sesión activa
+    // Guardar usuario completo como sesión activa
     const sessionFile = path.join(__dirname, "../session/activeUser.json");
     const sessionData = {
-      username: user.username,
+      ...user,
       loginDate: new Date().toISOString(),
     };
     fs.writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));

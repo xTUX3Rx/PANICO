@@ -31,6 +31,7 @@
     //alert(`Bienvenido, ${usuario.usuario}!`);
     // Aquí podrías guardar la sesión o redirigir:
     localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
-    window.location.href = '../../app/components/home/home.component.html';
+    window.location.href = 'app/components/home/home.component.html';
+  
   });
 })();

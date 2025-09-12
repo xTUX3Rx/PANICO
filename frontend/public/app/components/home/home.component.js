@@ -23,7 +23,10 @@ function error() {
 
 function logout() {
   localStorage.clear();
-  window.location.href = "../../../public/index.html";
+  // Elimina datos de sesión usuario activo
+   localStorage.removeItem('usuarioActivo');
+  // Redirige al login
+  window.location.href = '../../../index.html';
 }
 
 function getLoggedUser() {

@@ -1,5 +1,11 @@
 const loginButton = document.getElementById("loginButton");
 
+// Usar siempre la misma clave
+const usuarioActivo = localStorage.getItem('usuarioActivo');
+if (usuarioActivo) {
+  window.location.href = 'app/components/home/home.component.html';
+}
+
 loginButton.addEventListener("click", async () => {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
@@ -7,24 +13,25 @@ loginButton.addEventListener("click", async () => {
   const res = await fetch("/.netlify/functions/login", {
     method: "POST",
     body: JSON.stringify({ username, password }),
+    headers: { "Content-Type": "application/json" }
   });
 
   const data = await res.json();
 
   if (data.success) {
-    localStorage.setItem("activeUser", JSON.stringify(data.user));
-    window.location.href = "./app/home/home.component.html";
+    // Guardar con la misma clave
+    localStorage.setItem("usuarioActivo", JSON.stringify(data.user));
+    window.location.href = "app/components/home/home.component.html";
   } else {
     alert("❌ " + data.message);
   }
 });
 
-// Al cargar index.html, verificar si ya hay sesión
-window.addEventListener("DOMContentLoaded", async () => {
-  const res = await fetch("/.netlify/functions/session");
-  const data = await res.json();
-
-  if (data.active) {
-    window.location.href = "./app/home/home.component.html";
-  }
-});
+fetch('/.netlify/functions/getActiveUser')
+  .then(res => res.json())
+  .then(data => {
+    if (data.user) {
+      // Usuario activo, redirige al home
+      window.location.href = 'app/components/home/home.component.html';
+    }
+  });
