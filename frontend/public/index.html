@@ -13,16 +13,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="../assets/styles/reset.css">
-  <link rel="stylesheet" href="../assets/styles/login.css">
-  <script type="module" src="../app/home/home.component.js"></script>
+  <link rel="stylesheet" href="assets/styles/reset.css">
+  <link rel="stylesheet" href="assets/styles/login.css">
+  
 </head>
 
 <body>
   <div class="login-screen" id="loginScreen">
     <div class="login-image">
       <div class="login-image__filter"></div>
-      <img src="../assets/images/panic-background.png" alt="dont-panic">
+      <img src="assets/images/panic-background.png" alt="dont-panic">
     </div>
 
     <div class="login-box">
@@ -57,10 +57,11 @@
   </div>
   
   <script src="script.js"></script>
-  <script src="../app/domain/login/load-data.js" defer></script>
-  <script src="../app/shared/helper/helper.js" defer></script>
-  <script src="../app/domain/register/register.js" defer></script>
-  <script src="../app/domain/login/log-in.js" defer></script>
+  <script type="module" src="app/home/home.component.js"></script>
+  <script src="app/domain/login/load-data.js" defer></script>
+  <script src="app/shared/helper/helper.js" defer></script>
+  <script src="app/domain/register/register.js" defer></script>
+  <script src="app/domain/login/log-in.js" defer></script>
 </body>
 
 </html>
