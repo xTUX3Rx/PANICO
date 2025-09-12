@@ -25,7 +25,9 @@ function logout() {
     // Elimina datos de sesión usuario activo
    localStorage.removeItem('usuarioActivo');
   // Redirige al login
-  window.location.href = '/';
+   // window.location.href = '/';
+   //local storage
+ window.location.href = '../../../index.html';
 }
 
 function getLoggedUser() {
@@ -274,7 +276,7 @@ on('#logoutBtn', 'click', logout);
 
 
 function hiddenWelcome() {
-  const time = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000;
+  const time = Math.floor(Math.random() * (2000 - 1000 + 1)) + 1000;
   setTimeout(() => {
     $('.welcome').classList.add('hidden');
   }, time)

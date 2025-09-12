@@ -27,10 +27,10 @@ loginButton.addEventListener("click", async () => {
 });
 
 // Validación extra con backend (opcional)
-fetch('/.netlify/functions/getActiveUser')
-  .then(res => res.json())
-  .then(data => {
-    if (data.user) {
-      window.location.href = 'app/components/home/home.component.html';
-    }
-  });
+//fetch('/.netlify/functions/getActiveUser')
+  //.then(res => res.json())
+  //.then(data => {
+  //  if (data.user) {
+    //  window.location.href = 'app/components/home/home.component.html';
+  //  }
+ // });
