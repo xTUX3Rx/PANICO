@@ -1,6 +1,3 @@
-const os = require('node:os');
-console.log("NOMBRE DEL HOST: ", os.hostname());
-
 
 document.addEventListener('DOMContentLoaded', function () {
   function $(selector) {
