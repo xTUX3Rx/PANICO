@@ -1,37 +1,37 @@
 [
   {
-    "usuario": "admin",
-    "clave": "1234",
+    "username": "admin",
+    "password": "1234",
     "celular":"51929370034",
     "nickname": "Administrador"
   },
   {
-    "usuario": "jordanojulca",
-    "clave": "yo2025",
+    "username": "jordanojulca",
+    "password": "yo2025",
     "celular":"51948581150",
     "nickname": "Jordano Julca"
   },
   {
-    "usuario": "samychavez",
-    "clave": "123",
+    "username": "samychavez",
+    "password": "123",
     "celular":"51910269107",
     "nickname": "Samy Chavez"
   },
   {
-    "usuario": "piero",
-    "clave": "proyecto10",
+    "username": "piero",
+    "password": "proyecto10",
     "celular":"51921687047",
     "nickname": "Piero"
   },
   {
-    "usuario": "julieta",
-    "clave": "2012",
+    "username": "julieta",
+    "password": "2012",
     "celular":"51973145507",
     "nickname": "Julieta"
   },
   {
-    "usuario": "jesusadriano",
-    "clave": "4444",
+    "username": "jesusadriano",
+    "password": "4444",
     "celular":"51900681492",
     "nickname": "Jesus Adriano"
   }
