@@ -1,6 +1,5 @@
-//LOCAL STORAGE
-(function login(){
-   fetch('../../backend/data/usuarios.json')
+(function login() {
+  fetch('/.netlify/functions/usuarios') // Debes crear esta función si quieres exponer los usuarios
     .then(response => response.json())
     .then(data => {
       localStorage.setItem('usuario', JSON.stringify(data));
