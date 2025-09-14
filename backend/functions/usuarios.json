@@ -1,0 +1,38 @@
+[
+  {
+    "username": "admin",
+    "password": "1234",
+    "celular":"51929370034",
+    "nickname": "Administrador"
+  },
+  {
+    "username": "jordanojulca",
+    "password": "yo2025",
+    "celular":"51948581150",
+    "nickname": "Jordano Julca"
+  },
+  {
+    "username": "samychavez",
+    "password": "123",
+    "celular":"51910269107",
+    "nickname": "Samy Chavez"
+  },
+  {
+    "username": "piero",
+    "password": "proyecto10",
+    "celular":"51921687047",
+    "nickname": "Piero"
+  },
+  {
+    "username": "julieta",
+    "password": "2012",
+    "celular":"51973145507",
+    "nickname": "Julieta"
+  },
+  {
+    "username": "jesusadriano",
+    "password": "4444",
+    "celular":"51900681492",
+    "nickname": "Jesus Adriano"
+  }
+]

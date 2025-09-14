@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
     const { username, password } = body;
 
     // Ruta a usuarios.json
-    const usersFile = path.join(__dirname, "../data/usuarios.json");
+    const usersFile = path.join(__dirname, "usuarios.json");
     const users = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
 
     // Validar usuario
