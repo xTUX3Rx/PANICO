@@ -1,3 +1,4 @@
+console.log("¡Bienvenido/a al programa!");
 // backend/functions/login.js
 const fs = require("fs");
 const path = require("path");

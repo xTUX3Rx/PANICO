@@ -1,3 +1,4 @@
+console.log("¡Bienvenido/a al SCRIP");
 const loginButton = document.getElementById("loginButton");
 
 // Verifica si hay usuario activo en localStorage
