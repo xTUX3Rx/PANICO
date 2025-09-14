@@ -8,30 +8,27 @@
     errorMsg.style.display = 'none';
 
     // OJO: Tu clave en localStorage es 'usuario', no 'usuarios'
-    const usuariosGuardados = localStorage.getItem('usuario');
+const usuariosGuardados = localStorage.getItem('usuarios');
 
-    if (!usuariosGuardados) {
-      errorMsg.textContent = 'No se encontraron usuarios cargados.';
-      errorMsg.style.display = 'block';
-      return;
-    }
+if (!usuariosGuardados) {
+  errorMsg.textContent = 'No se encontraron usuarios cargados.';
+  errorMsg.style.display = 'block';
+  return;
+}
 
-    const usuarios = JSON.parse(usuariosGuardados);
+const usuarios = JSON.parse(usuariosGuardados);
 
-    // Busca el usuario
-    const usuario = usuarios.find(u => u.usuario === usernameInput);
+// Busca el usuario
+const usuario = usuarios.find(u => u.username === usernameInput);
 
-    if (!usuario || usuario.clave !== passwordInput) {
-      errorMsg.textContent = 'Usuario o contraseña incorrectos';
-      errorMsg.style.display = 'block';
-      return;
-    }
+if (!usuario || usuario.password !== passwordInput) {
+  errorMsg.textContent = 'Usuario o contraseña incorrectos';
+  errorMsg.style.display = 'block';
+  return;
+}
 
-    // ✅ Login exitoso
-    //alert(`Bienvenido, ${usuario.usuario}!`);
-    // Aquí podrías guardar la sesión o redirigir:
-    localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
-    window.location.href = 'app/components/home/home.component.html';
-  
+// ✅ Login exitoso
+localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
+window.location.href = 'app/components/home/home.component.html';
   });
 })();

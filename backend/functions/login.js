@@ -1,6 +1,6 @@
 // backend/functions/login.js
-const fs = require("node:fs");
-const path = require("node:path");
+const fs = require("fs");
+const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
