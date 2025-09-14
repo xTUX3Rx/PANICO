@@ -1,9 +1,11 @@
 // backend/functions/login.js
-const fs = require("fs");
-const path = require("path");
+const fs = require("node:fs");
+const path = require("node: path");
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
   try {
+ 
+    
     const body = JSON.parse(event.body);
     const { username, password } = body;
 
@@ -31,14 +33,21 @@ exports.handler = async (event) => {
     };
     fs.writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));
 
-    return {
+
+
+
+
+
+
+
+   return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, user: sessionData }),
+      body: JSON.stringify({ success: true })
     };
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ success: false, message: error.message }),
+      body: JSON.stringify({ error: error.message })
     };
   }
 };
