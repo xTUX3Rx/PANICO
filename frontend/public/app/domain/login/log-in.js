@@ -32,7 +32,7 @@
         if (res.status === 200) {
           window.location.href = "app/components/home/home.component.html";
         } else {
-          console.error("Error en login", data);
+          console.error("Error en login", res);
         }
       });
     }

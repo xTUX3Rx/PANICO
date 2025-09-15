@@ -5,9 +5,13 @@ const path = require("path");
 
 exports.handler = async (event, context) => {
   try {
- 
     
-    const body = JSON.parse(event.body);
+    let body = {};
+    if (event.body) {
+      body = JSON.parse(event.body);
+    }
+    
+    // const body = JSON.parse(event.body);
     const { username, password } = body;
 
     // Ruta a usuarios.json
