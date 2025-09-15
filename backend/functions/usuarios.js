@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.handler = async () => {
   try {
-    const usersFile = path.join(__dirname, "usuarios.json");
+    const usersFile = path.join(__dirname, "../data/usuarios.json");
     const users = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
     return {
       statusCode: 200,
