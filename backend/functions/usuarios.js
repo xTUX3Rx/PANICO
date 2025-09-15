@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const users = require('./usuarios.json');
+const data = require('./usuarios.json');
 
 exports.handler = async () => {
   try {
@@ -8,7 +8,7 @@ exports.handler = async () => {
     // const users = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
     return {
       statusCode: 200,
-      body: JSON.stringify(users),
+      body: JSON.stringify(data.users),
     };
   } catch (error) {
     return {

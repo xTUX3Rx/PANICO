@@ -12,10 +12,10 @@ exports.handler = async (event, context) => {
 
     // Ruta a usuarios.json
     const usersFile = path.join(__dirname, "usuarios.json");
-    const users = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
+    const data = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
 
     // Validar usuario
-    const user = users.find(
+    const user = data.users.find(
       (u) => u.username === username && u.password === password
     );
 
