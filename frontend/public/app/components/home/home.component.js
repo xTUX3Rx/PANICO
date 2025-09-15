@@ -21,23 +21,36 @@ function error() {
   alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
 }
 
+function setNickname(nickname) {
+  $("#nickname").innerText = nickname;
+}
+
 function logout() {
-  localStorage.clear();
-  window.location.href = "../../../index.html";
+  fetch('/api/logout', { method: 'POST' })
+  .then(res => res.json())
+  .then(data => {
+      window.location.href = '../../../index.html';
+    })
+    .catch(error => {
+      console.error('Error al cerrar sesión:', error);
+    });
 }
 
 function getLoggedUser() {
-  loggedUser = JSON.parse(localStorage.getItem('usuarioActivo'));
-  console.log(loggedUser)
-}
-
-function setNickname(nickname) {
-  $("#nickname").innerText = nickname;
-  console.log(nickname)
+  fetch('/api/getActiveUser')
+    .then(res => res.json())
+    .then(activeUser => {
+      $('.welcome').classList.add('hidden');
+      setNickname(activeUser.user.nickname);
+      loggedUser = activeUser.user;
+    })
+    .catch(err => {
+      console.error("Error al obtener el usuario activo:", err);
+      window.location.href = '../../../index.html';
+    });
 }
 
 getLoggedUser();
-setNickname(loggedUser.nickname);
 
 on('#activateAlarm', 'click', () => {
   if (!isAlarmPlaying) {
@@ -64,8 +77,6 @@ on('#activateAlarm', 'click', () => {
     alertStatus.classList.remove('active');
   }
 });
-
-//sonido ambulancia +----+
 
 on('#alarmAmbulance', 'click', function () {
   // Cambios visuales
@@ -103,17 +114,17 @@ on('#shareLocation', 'click', () => {
     alert("Tu navegador no soporta geolocalización.");
     return;
   }
-
+  
   navigator.geolocation.getCurrentPosition(success, error);
   function success(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
-    const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo'));
     let numero = "51929370034"; // Valor por defecto, por si algo falla
 
-    if (usuarioActivo && usuarioActivo.celular) {
-      numero = usuarioActivo.celular;
+    if (loggedUser && loggedUser.celular) {
+      numero = loggedUser.celular;
+      console.log("Número de celular del usuario:", numero);
     }
     const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
 
@@ -137,38 +148,6 @@ on('#callCem', 'click', () => {
   window.location.href = `tel:989366194`;
 });
 
-
-
-/*
-// UBICACION SERENAZGO
-ubicasereno.addEventListener('click', () => {
-  if (!navigator.geolocation) {
-      alert("Tu navegador no soporta geolocalización.");
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(success, error);
-
-    function success(position) {
-      const lat = position.coords.latitude;
-      const lon = position.coords.longitude;
-      const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
-
-      const numero = "51921694173"; // SERENAZGO
-      const mensaje = `🚨 ¡Emergencia! Necesito ayuda. Mi ubicación es: ${mapsLink}`;
-
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_blank');
-    }
-
-    function error() {
-      alert("No se pudo obtener tu ubicación. Asegúrate de tener el GPS activado.");
-    }
-})
-*/
-
-
-
 function setPoliceNumber() {
   if (locationConfig === "peru") {
     policeNumber = '105';
@@ -190,22 +169,22 @@ function stopAllSounds() {
   // Estados
   isAlarmPlaying = false;
   isAmbulanceAlarmPlaying = false;
-  // Quitar clases activas si es necesario
   alarmButton.classList.remove('active-button');
   alertStatus.classList.remove('active');
 }
 
 function toggleOverlay() {
-  // $('.overlay-menu').classList.toggle('active-layout');
   $('.wrapper-menu').classList.toggle('active-menu');
   $('.content-menu').classList.toggle('active-content');
 }
 
+$('.welcome').addEventListener('transitionend', function () {
+  this.remove();
+});
+
 document.querySelectorAll('.button-menu').forEach(btn => {
   btn.addEventListener('click', toggleOverlay);
 })
-
-// document.querySelector('.overlay-menu').addEventListener('click', toggleOverlay);
 
 document.querySelectorAll('.menu-option').forEach(option => {
   option.addEventListener('click', function () {
@@ -258,7 +237,6 @@ function simulateAlert() {
   setTimeout(() => {
     $('.badge-alert').classList.add('active');
     $('.button-notification').classList.add('active');
-
     executeAlarm();
   }, 2000);
 }
@@ -269,17 +247,3 @@ on('.dialog-action', 'click', () => {
   executeAlarm();
 });
 on('#logoutBtn', 'click', logout);
-
-
-function hiddenWelcome() {
-  const time = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000;
-  setTimeout(() => {
-    $('.welcome').classList.add('hidden');
-  }, time)
-}
-
-hiddenWelcome();
-
-$('.welcome').addEventListener('transitionend', function () {
-  this.remove();
-});

@@ -1,8 +1,8 @@
 (function login() {
-  fetch('assets/data/usuarios.json')
+  fetch('/api/usuarios') // Debes crear esta función si quieres exponer los usuarios
     .then(response => response.json())
     .then(data => {
-      localStorage.setItem('usuario', JSON.stringify(data));
+      localStorage.setItem('usuarios', JSON.stringify(data));
     })
     .catch(error => console.error('Error al cargar el JSON:', error));
 })();
