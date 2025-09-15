@@ -1,4 +1,3 @@
-// backend/functions/logout.js
 const fs = require("fs");
 const path = require("path");
 

@@ -34,13 +34,6 @@ exports.handler = async (event, context) => {
     };
     fs.writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));
 
-
-
-
-
-
-
-
    return {
       statusCode: 200,
       body: JSON.stringify({ success: true })
