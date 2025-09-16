@@ -30,6 +30,9 @@
     // ✅ Login exitoso
     //alert(`Bienvenido, ${usuario.usuario}!`);
     // Aquí podrías guardar la sesión o redirigir:
+    localStorage.setItem('savedUsername', usernameInput);
+    localStorage.setItem('savedPassword', passwordInput);
+    ///lo de arriba estoy modificando
     localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
     window.location.href = '../../app/components/home/home.component.html';
   });
