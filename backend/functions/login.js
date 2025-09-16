@@ -2,6 +2,7 @@ console.log("¡Bienvenido/a al programa!");
 // backend/functions/login.js
 const fs = require("fs");
 const path = require("path");
+const data = require('./usuarios.json');
 
 exports.handler = async (event, context) => {
   try {
@@ -15,8 +16,8 @@ exports.handler = async (event, context) => {
     const { username, password } = body;
 
     // Ruta a usuarios.json
-    const usersFile = path.join(__dirname, "usuarios.json");
-    const data = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
+    // const usersFile = path.join(__dirname, "usuarios.json");
+    // const data = JSON.parse(fs.readFileSync(usersFile, "utf-8"));
 
     // Validar usuario
     const user = data.users.find(
