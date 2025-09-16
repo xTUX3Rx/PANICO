@@ -269,7 +269,7 @@ on('.dialog-action', 'click', () => {
   executeAlarm();
 });
 on('#logoutBtn', 'click', logout);
-
+/*
 
 function hiddenWelcome() {
   const time = Math.floor(Math.random() * (800 - 300 + 1)) + 300;
@@ -283,3 +283,4 @@ hiddenWelcome();
  $('.welcome').addEventListener('transitionend', function () {
   this.remove();
  });
+*/
