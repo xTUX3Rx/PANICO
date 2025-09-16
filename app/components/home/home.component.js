@@ -272,7 +272,7 @@ on('#logoutBtn', 'click', logout);
 
 
 function hiddenWelcome() {
-  const time = Math.floor(Math.random() * (3000 - 1000 + 1)) + 1000;
+  const time = Math.floor(Math.random() * (800 - 300 + 1)) + 300;
   setTimeout(() => {
     $('.welcome').classList.add('hidden');
   }, time)
