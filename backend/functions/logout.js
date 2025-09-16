@@ -4,9 +4,7 @@ const path = require("path");
 exports.handler = async () => {
   const sessionFile = path.join(__dirname, "./activeUser.json");
 
-  if (fs.existsSync(sessionFile)) {
-    fs.unlinkSync(sessionFile);
-  }
+  fs.writeFileSync(sessionFile, JSON.stringify({}));
 
   return {
     statusCode: 200,
