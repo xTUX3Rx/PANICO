@@ -94,6 +94,8 @@
   transform: translateY(100%);
   transition: transform 0.5s ease-in-out;
 }
+*/
+
 .welcome-message {
   background-color: rgb(168, 188, 255);
   padding: 2rem;
@@ -106,7 +108,7 @@
 }
 
 
-*/
+
 
 
 .wrapper-app {
