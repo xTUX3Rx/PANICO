@@ -32,7 +32,7 @@ exports.handler = async (event, context) => {
     }
 
     // Guardar usuario completo como sesión activa
-    const sessionFile = path.join(__dirname, "../session/activeUser.json");
+    const sessionFile = path.join(__dirname, "./activeUser.json");
     const sessionData = {
       ...user,
       loginDate: new Date().toISOString(),

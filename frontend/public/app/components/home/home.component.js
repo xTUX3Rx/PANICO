@@ -40,6 +40,7 @@ function getLoggedUser() {
   fetch('/api/getActiveUser')
     .then(res => res.json())
     .then(activeUser => {
+      console.log("Usuario activo:", activeUser);
       $('.welcome').classList.add('hidden');
       setNickname(activeUser.user.nickname);
       loggedUser = activeUser.user;

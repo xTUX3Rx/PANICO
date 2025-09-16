@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.handler = async () => {
   try {
-    const sessionFile = path.join(__dirname, "../session/activeUser.json");
+    const sessionFile = path.join(__dirname, "./activeUser.json");
     if (!fs.existsSync(sessionFile)) {
       return {
         statusCode: 200,
