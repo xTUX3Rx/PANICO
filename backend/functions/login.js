@@ -6,12 +6,10 @@ const data = require('./usuarios.json');
 
 exports.handler = async (event, context) => {
   try {
-    
     let body = {};
     if (event.body) {
       body = JSON.parse(event.body);
     }
-    
     const { username, password } = body;
 
     // Validar usuario
@@ -26,18 +24,19 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Guardar usuario completo como sesión activa
-    const sessionFile = path.join(__dirname, "./activeUser.json");
+    const sessionFilePath = "./activeUser.json";
     const sessionData = {
       ...user,
       loginDate: new Date().toISOString(),
     };
-    fs.writeFileSync(sessionFile, JSON.stringify(sessionData, null, 2));
 
-   return {
+    fs.writeFileSync(sessionFilePath, JSON.stringify(sessionData, null, 2));
+
+    return {
       statusCode: 200,
       body: JSON.stringify({ success: true })
     };
+
   } catch (error) {
     return {
       statusCode: 500,
