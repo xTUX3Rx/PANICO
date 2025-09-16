@@ -11,7 +11,7 @@
       if (savedUsername && savedPassword) {
         // Buscar usuario en el JSON cargado
         const userFound = data.find(user =>
-          user.username === savedUsername && user.password === savedPassword
+          user.usuario === savedUsername && user.clave === savedPassword
         );
 
         if (userFound) {
