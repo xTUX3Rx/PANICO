@@ -280,6 +280,6 @@ function hiddenWelcome() {
 
 hiddenWelcome();
 
-$('.welcome').addEventListener('transitionend', function () {
-  this.remove();
-});
+// $('.welcome').addEventListener('transitionend', function () {
+//  this.remove();
+// });
